@@ -24,6 +24,7 @@ This document explores how tooth length changes with different **vitamin C doses
 ```{r}
 # Summarizing the tooth length by dose and supplement type
 aggregate(len ~ dose + supp, data = ToothGrowth, FUN = mean)
+# commit 2
 
 ```
 
