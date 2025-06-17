@@ -22,6 +22,7 @@ library(ggplot2)
 library(knitr)
 library(dplyr)
 
+#Loading the datasets 
 dt_india <- fread("indicators_ind.csv")[-1,]
 dt_are <- fread("indicators_are.csv")[-1,]
 dt_usa <- fread("indicators_usa.csv")[-1,]
