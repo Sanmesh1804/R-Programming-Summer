@@ -10,6 +10,7 @@ execute:
 
 # *Introduction*
 
+
 The **`ToothGrowth`** dataset is available in base R and contains data on the effect of **vitamin C** on tooth growth in guinea pigs.
 
 There are **60 observations** and **3 variables**: - `len`: Tooth length - `supp`: Supplement type (VC = ascorbic acid, OJ = orange juice) - `dose`: Dose in milligrams/day (0.5, 1.0, or 2.0)
@@ -23,6 +24,7 @@ This document explores how tooth length changes with different **vitamin C doses
 ```{r}
 # Summarizing the tooth length by dose and supplement type
 aggregate(len ~ dose + supp, data = ToothGrowth, FUN = mean)
+
 ```
 
 We calculate the **average tooth length** for each combination of dose and supplement type.
@@ -48,8 +50,8 @@ ggplot(ToothGrowth, aes(x = factor(dose), y = len, fill = supp)) +
 
 From the summary and plot, we observe:
 
--   Tooth length generally increases with **higher doses** of vitamin C.
+1)  Tooth length generally increases with **higher doses** of vitamin C.
 
--   Supplement type also appears to influence growth, especially at **lower doses**.
+2)  Supplement type also appears to influence growth, especially at **lower doses**.
 
--   The `ToothGrowth` dataset provides a great example of visualizing experimental results using R.
+3)   The `ToothGrowth` dataset provides a great example of visualizing experimental results using R.
