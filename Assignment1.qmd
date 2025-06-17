@@ -68,6 +68,7 @@ dt_usa[, `:=`(
 ```{r, echo=TRUE, results='show'}
 dt_all <- rbindlist(list(dt_india, dt_are, dt_usa)
                     , use.names = TRUE, fill = TRUE)
+print("Combined three datasets successfully")
 ```
 
 -   Assigned the correct class for each of the column of dataset for respective countries.
