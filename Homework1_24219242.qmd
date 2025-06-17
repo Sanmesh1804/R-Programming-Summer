@@ -1,0 +1,55 @@
+---
+title: "Quarto Assignment"
+author: "Sanmesh Shintre (24219242)"
+format: pdf
+execute:
+  echo: false 
+  warning: false
+  message: false
+---
+
+# *Introduction*
+
+The **`ToothGrowth`** dataset is available in base R and contains data on the effect of **vitamin C** on tooth growth in guinea pigs.
+
+There are **60 observations** and **3 variables**: - `len`: Tooth length - `supp`: Supplement type (VC = ascorbic acid, OJ = orange juice) - `dose`: Dose in milligrams/day (0.5, 1.0, or 2.0)
+
+This document explores how tooth length changes with different **vitamin C doses**, grouped by supplement type.
+
+------------------------------------------------------------------------
+
+# *Descriptive Statistics*
+
+```{r}
+# Summarizing the tooth length by dose and supplement type
+aggregate(len ~ dose + supp, data = ToothGrowth, FUN = mean)
+```
+
+We calculate the **average tooth length** for each combination of dose and supplement type.
+
+# *Boxplot: Tooth Length by Dose and Supplement*
+
+```{r}
+# Creating a grouped boxplot using the ggplot2
+library(ggplot2)
+
+ggplot(ToothGrowth, aes(x = factor(dose), y = len, fill = supp)) +
+  geom_boxplot() +
+  labs(title = "Tooth Length by Vitamin C Dose and Supplement Type",
+       x = "Dose (mg/day)",
+       y = "Tooth Length") +
+  scale_fill_manual(values = c("orange", "steelblue")) +
+  theme_minimal()
+```
+
+*The boxplot shows that tooth length increases with higher doses of vitamin C.* Orange juice (`OJ`) seems slightly more effective at lower doses compared to ascorbic acid (`VC`).
+
+# *Conclusion*
+
+From the summary and plot, we observe:
+
+-   Tooth length generally increases with **higher doses** of vitamin C.
+
+-   Supplement type also appears to influence growth, especially at **lower doses**.
+
+-   The `ToothGrowth` dataset provides a great example of visualizing experimental results using R.
